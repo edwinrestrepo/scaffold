@@ -5,10 +5,23 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <script src="http://code.jquery.com/jquery.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+	<style>
+		.form-control.text-area{
+			width: 900px;
+			height: 500px;
+		}
+	</style>
 </head>
 <body>
-
-<%= yield %>
-
+	<div class="container">
+		<% if flash[:notice] %>
+			<div class="alert alert-info" role="alert">
+				<p id="notice"><%= notice %></p>
+			</div>
+		<% end %>
+		<%= yield %>
+	</div>
 </body>
 </html>
